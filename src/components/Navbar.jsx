@@ -2,7 +2,7 @@ const Navbar = () => {
     const active = window.location.pathname;
 
     return (
-        <header className="text-white mb-5">
+        <header className="text-white mb-3">
             <div className="container d-flex align-items-center justify-content-between">
                 {/* logo */}
                 <div className="logo">
