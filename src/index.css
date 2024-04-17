@@ -20,6 +20,10 @@ html {
   flex-direction: column;
 }
 
+body{
+  background-color: #212529;
+}
+
 /* HEADER - NAVBAR */
 header{
   background-color: #000;

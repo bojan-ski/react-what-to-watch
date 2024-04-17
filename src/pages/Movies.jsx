@@ -1,5 +1,7 @@
 import { useEffect } from "react"
 import { useGlobalContext } from "../context"
+import PageHeader from "../components/PageHeader"
+import GridCardContentData from "../components/GridCardContentData"
 
 const Movies = () => {
     const { fetchContentData, popularContent } = useGlobalContext()
@@ -9,36 +11,16 @@ const Movies = () => {
     }, [])
 
     return (
-        <>
-            <h2 className="text-center mb-3">
-                Current Popular Movies
-            </h2>
+        <div className="content-list movies mb-3">
+            <PageHeader text='Current Popular Movies' />
 
-            <div className="content-list movies grid mb-3">
-                {popularContent.map(content => {
+            <div className="grid">
+                {popularContent?.map(content => {
                     // console.log(content);
-                    const { id, poster_path, title } = content
-
-                    return (
-                        <div key={id} className="card">
-                            <img src={`https://image.tmdb.org/t/p/w500${poster_path}`} className="card-img-top" alt={title} />
-
-                            <div className="card-body">
-                                <h5 className="card-title">
-                                    {title}
-                                </h5>
-                                <p className="card-text">
-                                    NESTO
-                                </p>
-                                <a href="#" className="btn btn-primary fw-bold">
-                                    Details
-                                </a>
-                            </div>
-                        </div>
-                    )
+                    return <GridCardContentData key={content.id} content={content} />
                 })}
             </div>
-        </>
+        </div>
     )
 }
 
