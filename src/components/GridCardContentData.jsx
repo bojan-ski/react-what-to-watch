@@ -1,5 +1,7 @@
+import { Link } from "react-router-dom"
+
 const GridCardContentData = ({ content }) => {
-    const { poster_path, title } = content
+    const { id, poster_path, title } = content
     
     return (
         <div className="card">
@@ -12,9 +14,9 @@ const GridCardContentData = ({ content }) => {
                 <p className="card-text">
                     NESTO
                 </p>
-                <a href="#" className="btn btn-primary fw-bold">
+                <Link to={`/movies/${id}`} className="btn btn-primary fw-bold">
                     Details
-                </a>
+                </Link >
             </div>
         </div>
     )

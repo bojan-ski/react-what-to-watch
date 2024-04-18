@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom";
+
 const Navbar = () => {
     const active = window.location.pathname;
 
@@ -11,18 +13,18 @@ const Navbar = () => {
                     </a>
                 </div>
 
-                 {/* navbar links */}
+                {/* navbar links */}
                 <nav className='navbar navbar-expand'>
                     <ul className="navbar-nav">
                         <li className="nav-item">
-                            <a className={active === '/movies' ? "nav-link active" : "nav-link"} href="movies">
+                            <NavLink to='/movies' className='nav-link'>
                                 Movies
-                            </a>
+                            </NavLink>
                         </li>
                         <li className="nav-item">
-                            <a className={active === '/tv-shows' ? "nav-link active" : "nav-link"} href="tv-shows">
+                            <NavLink to='/tv-shows' className='nav-link'>
                                 Tv Shows
-                            </a>
+                            </NavLink>
                         </li>
                     </ul>
                 </nav>
