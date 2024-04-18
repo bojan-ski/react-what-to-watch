@@ -6,6 +6,7 @@ import Dashboard from "./pages/Dashboard"
 import Movies from "./pages/Movies"
 import SelectedMovie from "./pages/SelectedMovie"
 import TvShows from "./pages/TvShows"
+import SelectedTvShow from "./pages/SelectedTvShow"
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
               <Route path='/movies' element={<Movies />} />
               <Route path='/movies/:id' element={<SelectedMovie />} />
               <Route path='/tv-shows' element={<TvShows />} />
+              <Route path='/tv-shows/:id' element={<SelectedTvShow />} />
             </Routes>
           </main>
 

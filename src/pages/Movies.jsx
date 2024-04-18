@@ -5,7 +5,7 @@ import GridCardContentData from "../components/GridCardContentData"
 
 const Movies = () => {
     const { fetchContentData, selectedContent } = useGlobalContext()
-    
+
     // fetchContentData('movie/popular')
 
     useEffect(() => {
@@ -20,7 +20,9 @@ const Movies = () => {
                 <div className="grid">
                     {selectedContent?.map(content => {
                         // console.log(content);
-                        return <GridCardContentData key={content.id} content={content} />
+                        return (
+                            <GridCardContentData key={content.id} content={content} />
+                        )
                     })}
                 </div>
             </div>

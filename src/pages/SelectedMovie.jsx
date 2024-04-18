@@ -11,6 +11,7 @@ const SelectedMovie = () => {
     useEffect(() => {
         fetchContentData(`movie/${params.id}`)
     }, [selectedContent])
+
     // console.log(selectedContent);
 
     // const { backdrop_path, genres, overview, poster_path, release_date, runtime, title, vote_average } = selectedContent
@@ -26,7 +27,7 @@ const SelectedMovie = () => {
                     <div className="row align-items-center">
                         {/* row item 1 */}
                         <div className="section-1 col-12 col-md-6 p-4">
-                            <img src={`https://image.tmdb.org/t/p/w500${selectedContent?.poster_path}`} className="card-img-top" alt={selectedContent?.title} />
+                            <img src={`https://image.tmdb.org/t/p/w500${selectedContent?.poster_path}`} alt={selectedContent?.title} className="border border-warning" />
                         </div>
 
                         {/* row item 2 */}
@@ -37,7 +38,7 @@ const SelectedMovie = () => {
 
                             <div>
                                 <p>
-                                    <span>Average rating:</span> {selectedContent?.vote_average} / 10
+                                    <span>Average rating:</span> {selectedContent?.vote_average.toFixed(2)} / 10
                                 </p>
                                 <p>
                                     <span>Runtime:</span> {selectedContent?.runtime} min.

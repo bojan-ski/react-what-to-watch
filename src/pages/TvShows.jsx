@@ -1,11 +1,12 @@
 import { useEffect } from "react"
 import { useGlobalContext } from "../context"
+import { Link } from "react-router-dom"
 import PageHeader from "../components/PageHeader"
 import GridCardContentData from "../components/GridCardContentData"
 
 const TvShows = () => {
   const { fetchContentData, selectedContent } = useGlobalContext()
-  
+
   // fetchContentData('tv/popular')
 
   useEffect(() => {
@@ -20,7 +21,9 @@ const TvShows = () => {
         <div className="grid">
           {selectedContent?.map(content => {
             // console.log(content);
-            return <GridCardContentData key={content.id} content={content} />
+            return (
+              <GridCardContentData key={content.id} content={content} />
+            )
           })}
         </div>
       </div>
