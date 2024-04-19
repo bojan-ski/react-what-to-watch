@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 
 const GridCardContentData = ({ content }) => {
     // const { poster_path, title } = content
-    console.log(content);
+    // console.log(content);
 
     return (
         <div className="card">

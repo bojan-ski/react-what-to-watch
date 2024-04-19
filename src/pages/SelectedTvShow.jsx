@@ -1,6 +1,7 @@
 import { useParams, Link } from "react-router-dom"
 import { useEffect } from "react"
 import { useGlobalContext } from "../context"
+import SelectedContent from "../components/SelectedContent"
 
 const SelectedTvShow = () => {
     const params = useParams()
@@ -17,6 +18,8 @@ const SelectedTvShow = () => {
     return (
         < >
             <div className='content-details tv-show text-white'>
+                {/* <SelectedContent selectedContent={selectedContent}/> */}
+
                 {/* background-image/poster */}
                 <div className="background-poster" style={{ backgroundImage: `url(https://image.tmdb.org/t/p/original/${selectedContent?.backdrop_path})` }}></div>
 

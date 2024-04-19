@@ -1,35 +1,47 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom"
-import { AppProvider } from "./context"
-import Navbar from "./components/Navbar"
-import Footer from "./components/Footer"
+import { RouterProvider, createBrowserRouter } from "react-router-dom"
+import AppLayout from "./pages/AppLayout"
 import Dashboard from "./pages/Dashboard"
+import Search from './pages/Search'
 import Movies from "./pages/Movies"
 import SelectedMovie from "./pages/SelectedMovie"
 import TvShows from "./pages/TvShows"
 import SelectedTvShow from "./pages/SelectedTvShow"
 
-const App = () => {
-  return (
-    <BrowserRouter>
-      <AppProvider>
-        <>
-          <Navbar />
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <AppLayout />,
+    children:[
+      {
+        index: true,
+        element: <Dashboard/>,
+      },
+      {
+        path: 'search',
+        element: <Search/>,
+      },
+      {
+        path: 'movies',
+        element: <Movies/>,
+      },
+      {
+        path: 'movies/:id',
+        element: <SelectedMovie />
+      },
+      {
+        path: 'tv-shows',
+        element: <TvShows/>        
+      },
+      {
+        path: 'tv-shows/:id',
+        element: <SelectedTvShow />
+      }
+    ]
+  }
+])
 
-          <main>
-            <Routes>
-              <Route index path='/' element={<Dashboard />} />
-              <Route path='/movies' element={<Movies />} />
-              <Route path='/movies/:id' element={<SelectedMovie />} />
-              <Route path='/tv-shows' element={<TvShows />} />
-              <Route path='/tv-shows/:id' element={<SelectedTvShow />} />
-            </Routes>
-          </main>
-
-          <Footer />
-        </>
-      </AppProvider>
-    </BrowserRouter>
-  )
+const App = () =>{
+  return <RouterProvider router={router}></RouterProvider>
 }
 
 export default App
