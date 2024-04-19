@@ -1,17 +1,16 @@
-import { useEffect } from "react"
-import { useGlobalContext } from "../context"
-import { Link } from "react-router-dom"
+import { getContentData } from "../utils/getData"
+import { useLoaderData } from "react-router-dom"
 import PageHeader from "../components/PageHeader"
 import GridCardContentData from "../components/GridCardContentData"
 
+export const loader = async () => {
+  const selectedContent = await getContentData('tv/popular')
+
+  return selectedContent 
+}
+
 const TvShows = () => {
-  const { fetchContentData, selectedContent } = useGlobalContext()
-
-  // fetchContentData('tv/popular')
-
-  useEffect(() => {
-    fetchContentData('tv/popular')
-  }, [])
+  const selectedContent = useLoaderData()
 
   return (
     <div className="container">

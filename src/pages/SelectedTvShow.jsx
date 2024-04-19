@@ -1,19 +1,14 @@
-import { useParams, Link } from "react-router-dom"
-import { useEffect } from "react"
-import { useGlobalContext } from "../context"
-import SelectedContent from "../components/SelectedContent"
+import { Link, useLoaderData } from "react-router-dom"
+import { getContentData } from "../utils/getData"
+
+export const loader = async ({ params }) => {
+    const selectedContent = await getContentData(`tv/${params.id}`)
+
+    return selectedContent
+}
 
 const SelectedTvShow = () => {
-    const params = useParams()
-    const { fetchContentData, selectedContent } = useGlobalContext()
-
-    fetchContentData(`tv/${params.id}`)
-
-    useEffect(() => {
-        fetchContentData(`tv/${params.id}`)
-    }, [selectedContent])
-
-    // console.log(selectedContent);
+    const selectedContent = useLoaderData()
 
     return (
         < >
