@@ -1,21 +1,21 @@
 import { Link } from "react-router-dom"
 
-const GridCardContentData = ({ content }) => {
-    // const { poster_path, title } = content
-    // console.log(content);
+const GridCardContentData = ({ cardContent }) => {
+    // const { poster_path, title } = cardContent
+    // console.log(cardContent);
 
     return (
         <div className="card">
-            <img src={`https://image.tmdb.org/t/p/w500${content.poster_path}`} className="card-img-top" alt={content.title ? content.title : content.name} />
+            <img src={`https://image.tmdb.org/t/p/w500${cardContent.poster_path}`} className="card-img-top" alt={cardContent.title ? cardContent.title : cardContent.name} />
 
             <div className="card-body">
                 <h5 className="card-title">
-                    {content.title ? content.title : content.name} 
+                    {cardContent.title ? cardContent.title : cardContent.name} 
                 </h5>
                 <p className="card-text">
                     NESTO
                 </p>
-                <Link to={content.title ? `/movies/${content.id}` : `/tv-shows/${content.id}`} className="btn btn-primary fw-bold w-50 m-1">
+                <Link to={cardContent.title ? `/movies/${cardContent.id}` : `/tv-shows/${cardContent.id}`} className="btn btn-primary fw-bold w-50 m-1">
                     Details
                 </Link >
             </div>

@@ -18,10 +18,10 @@ const Movies = () => {
                 <PageHeader text='Current Popular Movies' />
 
                 <div className="grid">
-                    {selectedContent?.map(content => {
+                    {selectedContent?.map(cardContent => {
                         // console.log(content);
                         return (
-                            <GridCardContentData key={content.id} content={content} />
+                            <GridCardContentData key={cardContent.id} cardContent={cardContent} />
                         )
                     })}
                 </div>
