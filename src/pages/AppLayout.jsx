@@ -5,6 +5,7 @@ import Footer from "../components/Footer"
 
 const AppLayout = () => {
     const navigation = useNavigation()
+    console.log(navigation.state);
     const isPageLoading = navigation.state === 'loading'
 
     return (
@@ -13,7 +14,7 @@ const AppLayout = () => {
                 <Navbar />
 
                 <main>
-                    {isPageLoading ? <h1>LOADING...</h1> : <Outlet />}                    
+                    {isPageLoading ? <div className="loading" /> : <Outlet />}
                 </main>
 
                 <Footer />
