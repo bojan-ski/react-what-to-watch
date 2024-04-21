@@ -13,7 +13,7 @@ const SelectedContent = ({ selectedContent }) => {
                 <div className="row align-items-center">
                     {/* row item 1 */}
                     <div className="section-1 col-12 col-md-6 p-4">
-                        <img src={`https://image.tmdb.org/t/p/w500${selectedContent.poster_path}`} alt={selectedContent.title ? selectedContent.title : selectedContent.name} />
+                        <img src={`https://image.tmdb.org/t/p/w500${selectedContent.poster_path}`} alt={selectedContent.title ? selectedContent.title : selectedContent.name} className="img-fluid"/>
                     </div>
 
                     {/* row item 2 */}
@@ -71,9 +71,16 @@ const SelectedContent = ({ selectedContent }) => {
                             </ul>
                         </div>
                         
-                        <Link to={selectedContent.title ? `/movies` : `/tv-shows`} className="btn text-white px-4 border border-warning fw-bold">
-                            Back
-                        </Link >
+                        <div className="btn-container d-flex justify-content-between">
+                            <Link to={selectedContent.title ? `/movies` : `/tv-shows`} className="btn text-white px-4 border border-warning fw-bold">
+                                Back
+                            </Link >
+                            {selectedContent.homepage && (
+                                <a href={selectedContent.homepage} className="btn text-white px-4 border border-warning fw-bold" target="_blank">
+                                    Visit homepage
+                                </a>
+                            )}
+                        </div>
                     </div>
                 </div>
             </div>

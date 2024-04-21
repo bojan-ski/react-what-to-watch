@@ -29,14 +29,8 @@ body{
   transform: scale(0.95);
 }
 
-/* LOADING - SPINNER */
-.loading {
-  width: 6rem;
-  height: 6rem;
-  border: 5px solid var(--grey-400);
-  border-radius: 50%;
-  border-top-color: var(--primary-500);
-  animation: spinner 0.6s linear infinite;
+.loading{
+  height: 100vh;
 }
 
 /* HEADER - NAVBAR */
