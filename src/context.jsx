@@ -4,23 +4,21 @@ import axios from "axios"
 const AppContext = createContext()
 
 export const AppProvider = ({children}) => {
-    const [selectedContent, setSelectedContent] = useState()
+    const [searchContent, setSearchContent] = useState({})
+    const [pageNumber, setPageNumber] = useState(1)
+    const [totalNumberOfPages, setTotalNumberOfPages] = useState('')
 
-    const fetchContentData = async (requiredContent) => {
-        // console.log(requiredContent);
+    const getSearchContent = async (searchTerm, searchType) => {
+        // console.log(searchType, searchTerm);
+        const response = await axios.get(`${import.meta.env.VITE_URL}search/${searchType}?query=${searchTerm}&page=${pageNumber}&api_key=${import.meta.env.VITE_API_KEY}`)
+        const results = response.data
+        // console.log(results);
+    
+        setSearchContent(results.results)
+        setTotalNumberOfPages(results.total_pages)
+      }
 
-        try {
-            const response = await axios.get(`${import.meta.env.VITE_URL}${requiredContent}?api_key=${import.meta.env.VITE_API_KEY}`)
-            // console.log(response);
-            const result = response.data.results || response.data
-            // console.log(result);
-            setSelectedContent(result) 
-        } catch (error) {
-            console.log(error);
-        }
-    }
-
-    return <AppContext.Provider value={{fetchContentData, selectedContent}}>
+    return <AppContext.Provider value={{searchContent, getSearchContent, pageNumber, setPageNumber, totalNumberOfPages}}>
         {children}
     </AppContext.Provider>
 }

@@ -15,7 +15,6 @@ const AppLayout = () => {
                 <Navbar />
 
                 <main>
-                    
                     {isPageLoading ? <Loading /> : <Outlet />}
                 </main>
 
