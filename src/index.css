@@ -25,6 +25,11 @@ body{
   background-color: #212529;
 }
 
+.btn:hover{
+  background-color: rgb(255, 193, 7);
+  color: #000;
+}
+
 .btn:active{
   transform: scale(0.95);
 }
