@@ -1,62 +1,30 @@
-import { useNavigate } from "react-router-dom";
-import { useGlobalContext } from "../context";
+import { useLoaderData } from "react-router-dom";
+import { getContentData } from "../utils/getData";
+import Slides from "../components/Slides";
 
-const Dashboard = () => {  
-  const {searchContent, getSearchContent, totalNumberOfPages} = useGlobalContext()
-  const navigate = useNavigate()  
+export const loader = async () => {
+  const currentPopularMovies = await getContentData('movie/popular')
+  const currentPopularTvShows = await getContentData('tv/popular')
 
-  const handleSubmit = e => {
-    e.preventDefault()
+  return {currentPopularMovies, currentPopularTvShows}
+}
 
-    const searchTerm = e.target.elements[0].value
-    const searchType = e.target.elements[1].checked ? 'movie' : 'tv'
-
-    getSearchContent(searchTerm, searchType)  
-    navigate('/search')
-  }
-
-  console.log(searchContent);
-  console.log(totalNumberOfPages);
+const Dashboard = () => { 
+  const {currentPopularMovies, currentPopularTvShows} = useLoaderData()
 
   return (
     <>
       {/* SEARCH FORM */}
-      <section className="search">
-        <div className="container text-center text-white">
-          <h4 className="mb-4">
-            Looking for something specific?
-          </h4>
+      
 
-          <form className="w-50 mx-auto" onSubmit={handleSubmit}>
-            <div className="mb-3">
-              <input type="text" name="searchTerm" id="searchTerm" className="form-control" placeholder="Enter search term" required/>
-            </div>
+      {/* SLIDER - CURRENT POPULAR MOVIES */}
+      <Slides text='Current Popular Movies' selectedContent={currentPopularMovies} direction={false}/>
 
-            <div className="d-flex justify-content-between align-items-center">
-              <div className="form-check">
-                <label htmlFor="movie" className="form-check-label">
-                  Movies
-                </label>
-                <input type="radio" id="movie" name="type" className="form-check-input" defaultChecked/>
-              </div>
-              <div className="form-check">
-                <label htmlFor="tv-show" className="form-check-label">
-                  TV Shows
-                </label>
-                <input type="radio" id="tv-show" name="type" className="form-check-input"/>
-              </div>
-              <button className="btn btn-primary" type="submit">
-                Search
-              </button>
-            </div>
-          </form>
-        </div>
-      </section>
-
-      {/* SLIDER */}
-      <h1>Dashboard</h1>
+      {/* SLIDER - CURRENT POPULAR TV SHOWS */}
+      <Slides text='Current Popular Tv Shows' selectedContent={currentPopularTvShows} direction={true}/>
     </>
   )
 }
+
 
 export default Dashboard

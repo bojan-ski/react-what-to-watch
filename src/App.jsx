@@ -7,6 +7,7 @@ import SelectedMovie from "./pages/SelectedMovie"
 import TvShows from "./pages/TvShows"
 import SelectedTvShow from "./pages/SelectedTvShow"
 
+import { loader as dashboardLoader } from "./pages/Dashboard"
 import { loader as moviesLoader } from "./pages/Movies"
 import { loader as selectedMovieLoader } from "./pages/SelectedMovie"
 import { loader as tvShowsLoader } from "./pages/TvShows"
@@ -20,6 +21,7 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Dashboard/>,
+        loader: dashboardLoader
       },
       {
         path: 'search',

@@ -3,6 +3,8 @@ import { useGlobalContext } from "../context"
 const Pagination = () => {
     const { pageNumber, setPageNumber, totalNumberOfPages } = useGlobalContext()
 
+    if (!totalNumberOfPages || totalNumberOfPages <= 1) return
+
     return (
         <div className="pagination mb-3">
             <div className="container d-flex justify-content-between align-items-center">

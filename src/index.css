@@ -34,6 +34,8 @@ body{
   transform: scale(0.95);
 }
 
+
+/* LOADER - LOADING */
 .loading{
   height: 100vh;
 }
@@ -53,6 +55,10 @@ header .navbar .nav-item .nav-link{
   font-size: 18px;
 }
 
+header .navbar .nav-item .nav-link:hover{
+  color: #f1c40f;
+}
+
 .active{
   color: #f1c40f !important;
   font-weight: 500;
@@ -61,6 +67,16 @@ header .navbar .nav-item .nav-link{
 /* MAIN */
 main{
   flex: 1;
+}
+
+/* dashboard - swiper */
+.swiper {
+  padding: 20px 0;
+}
+
+.swiper-slide:hover{
+  transform: scale(1.02);
+  transition: all 0.5s ease-in-out;
 }
 
 /* content list (movies and tv shows) - grid */

@@ -19,7 +19,7 @@ const Movies = () => {
 
                 <div className="grid">
                     {selectedContent?.map(cardContent => {
-                        // console.log(content);
+                        // console.log(cardContent);
                         return (
                             <GridCardContentData key={cardContent.id} cardContent={cardContent} />
                         )
