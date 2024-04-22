@@ -28,17 +28,19 @@ const SearchForContentForm = () => {
                     </div>
 
                     <div className="d-flex justify-content-between align-items-center">
-                        <div className="form-check">
-                            <label htmlFor="movie" className="form-check-label">
-                                Movies
-                            </label>
-                            <input type="radio" id="movie" name="type" className="form-check-input" defaultChecked />
-                        </div>
-                        <div className="form-check">
-                            <label htmlFor="tv-show" className="form-check-label">
-                                TV Shows
-                            </label>
-                            <input type="radio" id="tv-show" name="type" className="form-check-input" />
+                        <div className="d-flex">
+                            <div className="form-check">
+                                <label htmlFor="movie" className="form-check-label">
+                                    Movies
+                                </label>
+                                <input type="radio" id="movie" name="type" className="form-check-input" defaultChecked />
+                            </div>
+                            <div className="form-check ms-3">
+                                <label htmlFor="tv-show" className="form-check-label">
+                                    TV Shows
+                                </label>
+                                <input type="radio" id="tv-show" name="type" className="form-check-input" />
+                            </div>
                         </div>
                         <button className="btn btn-primary" type="submit">
                             Search

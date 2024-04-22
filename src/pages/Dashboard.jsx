@@ -1,6 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 import { getContentData } from "../utils/getData";
 import Slides from "../components/Slides";
+import SearchForContentForm from "../components/SearchForContentForm";
 
 export const loader = async () => {
   const currentPopularMovies = await getContentData('movie/popular')
@@ -15,7 +16,7 @@ const Dashboard = () => {
   return (
     <>
       {/* SEARCH FORM */}
-      
+      <SearchForContentForm/>
 
       {/* SLIDER - CURRENT POPULAR MOVIES */}
       <Slides text='Current Popular Movies' selectedContent={currentPopularMovies} direction={false}/>
