@@ -4,7 +4,10 @@ import GridCardContentData from '../components/GridCardContentData'
 import Pagination from "../components/Pagination"
 
 const Search = () => {
-  const { searchContent } = useGlobalContext()
+  const { searchResults } = useGlobalContext()
+  // console.log(searchResults);
+  const results = searchResults.data
+  // console.log(results);
 
   return (
     <>
@@ -13,20 +16,15 @@ const Search = () => {
         <div className="content-list movies mb-3">
           <PageHeader text='SEARCH' />
 
-          {searchContent.length > 0 ? (
             <div className="grid">
-              {searchContent.map(cardContent => {
+              {results?.map(cardContent => {
                 // console.log(cardContent);
                 return (
                   <GridCardContentData key={cardContent.id} cardContent={cardContent} />
                 )
               })}
             </div>
-          ) :
-            (
-              ''
-            )
-          }
+
         </div>
       </div>
 

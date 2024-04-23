@@ -2,16 +2,17 @@ import { useGlobalContext } from "../context"
 import { useNavigate } from "react-router-dom"
 
 const SearchForContentForm = () => {
-    const { getSearchContent } = useGlobalContext()
+    const { setSearchContent } = useGlobalContext()
     const navigate = useNavigate()
 
     const handleSubmit = e => {
         e.preventDefault()
 
-        const searchTerm = e.target.elements[0].value
-        const searchType = e.target.elements[1].checked ? 'movie' : 'tv'
-
-        getSearchContent(searchTerm, searchType)
+        setSearchContent({
+            searchTerm: e.target.elements[0].value.trim(),
+            searchType: e.target.elements[1].checked ? 'movie' : 'tv'
+        })       
+        
         navigate('/search')
     }
 
