@@ -6,14 +6,14 @@ import GridCardContentData from "../components/GridCardContentData"
 export const loader = async () => {
     const selectedContent = await getContentData('movie/popular')
 
-    return selectedContent 
+    return  selectedContent 
 }
 
 const Movies = () => {
-    const selectedContent = useLoaderData()
+    const  selectedContent  = useLoaderData()
 
     return (
-        <div className="container">
+        <div className="container">         
             <div className="content-list movies mb-3">
                 <PageHeader text='Current Popular Movies' />
 

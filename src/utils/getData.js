@@ -6,6 +6,7 @@ export const getContentData = async (requiredContent) => {
     try {
         const response = await axios.get(`${import.meta.env.VITE_URL}${requiredContent}?api_key=${import.meta.env.VITE_API_KEY}`)
         // console.log(response);
+        // console.log(response.data);
         const result = response.data.results || response.data
         // console.log(result);
         return result

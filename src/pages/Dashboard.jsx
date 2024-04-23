@@ -4,8 +4,8 @@ import Slides from "../components/Slides";
 import SearchForContentForm from "../components/SearchForContentForm";
 
 export const loader = async () => {
-  const currentPopularMovies = await getContentData('movie/popular')
-  const currentPopularTvShows = await getContentData('tv/popular')
+  const currentPopularMovies = await getContentData('movie/top_rated')
+  const currentPopularTvShows = await getContentData('tv/top_rated')
 
   return {currentPopularMovies, currentPopularTvShows}
 }
@@ -18,11 +18,11 @@ const Dashboard = () => {
       {/* SEARCH FORM */}
       <SearchForContentForm/>
 
-      {/* SLIDER - CURRENT POPULAR MOVIES */}
-      <Slides text='Current Popular Movies' selectedContent={currentPopularMovies} direction={false}/>
+      {/* SLIDER - TOP RATED MOVIES */}
+      <Slides text='Top rated movies' selectedContent={currentPopularMovies} direction={false}/>
 
-      {/* SLIDER - CURRENT POPULAR TV SHOWS */}
-      <Slides text='Current Popular Tv Shows' selectedContent={currentPopularTvShows} direction={true}/>
+      {/* SLIDER - TOP RATED TV SHOWS */}
+      <Slides text='Top rated TV shows' selectedContent={currentPopularTvShows} direction={true}/>
     </>
   )
 }
