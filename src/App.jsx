@@ -6,6 +6,7 @@ import Movies from "./pages/Movies"
 import SelectedMovie from "./pages/SelectedMovie"
 import TvShows from "./pages/TvShows"
 import SelectedTvShow from "./pages/SelectedTvShow"
+import Error from "./pages/Error"
 
 // LOADERS
 import { loader as dashboardLoader } from "./pages/Dashboard"
@@ -14,10 +15,12 @@ import { loader as selectedMovieLoader } from "./pages/SelectedMovie"
 import { loader as tvShowsLoader } from "./pages/TvShows"
 import { loader as selectedTvShowLoader } from "./pages/SelectedTvShow"
 
+
 const router = createBrowserRouter([
   {
     path: '/',
     element: <AppLayout />,
+    errorElement: <Error/>,
     children:[
       {
         index: true,

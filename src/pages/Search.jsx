@@ -5,16 +5,24 @@ import Pagination from "../components/Pagination"
 
 const Search = () => {
   const { searchResults } = useGlobalContext()
-  // console.log(searchResults);
+  console.log(searchResults);
   const results = searchResults.data
-  // console.log(results);
+  console.log(results);
+
+  if (!results || results.length === 0) {
+    return (
+      <div className="container">
+        <PageHeader text='No search results found' />
+      </div>
+    )
+  }
 
   return (
     <>
       {/* MAIN - PAGE CONTENT */}
       <div className="container">
-        <div className="content-list movies mb-3">
-          <PageHeader text='SEARCH' />
+        <div className="search-results mb-3">
+          <PageHeader text='Search results' />
 
             <div className="grid">
               {results?.map(cardContent => {

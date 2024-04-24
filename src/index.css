@@ -109,6 +109,11 @@ main{
   font-weight: 700;
 }
 
+/* error page */
+.error{
+  height: 100vh;
+}
+
 /* FOOTER */
 .footer {
   background-color: #000;
