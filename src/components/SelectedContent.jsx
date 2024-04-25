@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import noImage from '../assets/no-available-img.png'
 
 const SelectedContent = ({ selectedContent }) => {
     // console.log(selectedContent);
@@ -6,14 +7,14 @@ const SelectedContent = ({ selectedContent }) => {
     return (
         <div className='content-details tv-show text-white'>
             {/* background-image/poster */}
-            <div className="background-poster" style={{ backgroundImage: `url(https://image.tmdb.org/t/p/original/${selectedContent.backdrop_path})` }}></div>
+            <div className="background-poster" style={{ backgroundImage: `url(https://image.tmdb.org/t/p/original/${selectedContent.backdrop_path})`}}></div>
 
             {/* page content */}
             <div className="container">
                 <div className="row align-items-center">
                     {/* row item 1 */}
                     <div className="section-1 col-12 col-md-6 p-4">
-                        <img src={`https://image.tmdb.org/t/p/w500${selectedContent.poster_path}`} alt={selectedContent.title ? selectedContent.title : selectedContent.name} className="img-fluid rounded border border-white"/>
+                        <img src={selectedContent.poster_path ? `https://image.tmdb.org/t/p/w500${selectedContent.poster_path}` : noImage} alt={selectedContent.title ? selectedContent.title : selectedContent.name} className="img-fluid rounded border border-white"/>
                     </div>
 
                     {/* row item 2 */}
@@ -61,7 +62,9 @@ const SelectedContent = ({ selectedContent }) => {
                         </div>
 
                         <div>
-                            <h5>Genres:</h5>
+                            <p>
+                                <span>Genres:</span>
+                            </p>
                             <ul className="list-unstyled">
                                 {selectedContent.genres.map((genre, idx) => {
                                     return <li key={idx}>

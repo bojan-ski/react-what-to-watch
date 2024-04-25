@@ -45,7 +45,7 @@ export const AppProvider = ({ children }) => {
     })
 
     // console.log(searchResults.data);
-    console.log(pageNumber);
+    // console.log(pageNumber);
     // console.log(totalNumberOfPages);
 
     return <AppContext.Provider value={{ searchContent, setSearchContent, searchResults, setRequiredContentList, getContentList, pageNumber, setPageNumber, totalNumberOfPages }}>

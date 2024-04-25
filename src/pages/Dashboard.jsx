@@ -17,7 +17,6 @@ const Dashboard = () => {
     <>
       {/* SEARCH FORM */}
       <SearchForContentForm/>
-
       {/* SLIDER - TOP RATED MOVIES */}
       <Slides text='Top rated movies' selectedContent={currentPopularMovies} direction={false}/>
 
