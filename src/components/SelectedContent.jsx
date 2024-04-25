@@ -13,7 +13,7 @@ const SelectedContent = ({ selectedContent }) => {
                 <div className="row align-items-center">
                     {/* row item 1 */}
                     <div className="section-1 col-12 col-md-6 p-4">
-                        <img src={`https://image.tmdb.org/t/p/w500${selectedContent.poster_path}`} alt={selectedContent.title ? selectedContent.title : selectedContent.name} className="img-fluid"/>
+                        <img src={`https://image.tmdb.org/t/p/w500${selectedContent.poster_path}`} alt={selectedContent.title ? selectedContent.title : selectedContent.name} className="img-fluid rounded border border-white"/>
                     </div>
 
                     {/* row item 2 */}

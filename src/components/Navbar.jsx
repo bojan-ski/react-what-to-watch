@@ -1,8 +1,6 @@
 import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
-    const active = window.location.pathname;
-
     return (
         <header className="text-white mb-3">
             <div className="container d-flex align-items-center justify-content-between">
@@ -23,7 +21,7 @@ const Navbar = () => {
                         </li>
                         <li className="nav-item">
                             <NavLink to='/tv-shows' className='nav-link'>
-                                Tv Shows
+                                TV Shows
                             </NavLink>
                         </li>
                     </ul>

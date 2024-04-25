@@ -15,7 +15,7 @@ const GridCardContentData = ({ cardContent }) => {
                 <p className="card-text">
                     Average rate: <span className="fw-bold">{cardContent.vote_average.toFixed(2)}</span>
                 </p>
-                <Link to={cardContent.title ? `/movies/${cardContent.id}` : `/tv-shows/${cardContent.id}`} className="btn btn-primary fw-bold w-50 m-1">
+                <Link to={cardContent.title ? `/movies/${cardContent.id}` : `/tv-shows/${cardContent.id}`} className="btn btn text-black border-warning fw-bold w-50 m-1">
                     Details
                 </Link >
             </div>

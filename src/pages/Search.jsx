@@ -2,12 +2,18 @@ import { useGlobalContext } from "../context"
 import PageHeader from '../components/PageHeader'
 import GridCardContentData from '../components/GridCardContentData'
 import Pagination from "../components/Pagination"
+import Loading from "../components/Loading"
 
 const Search = () => {
-  const { searchResults } = useGlobalContext()
-  console.log(searchResults);
+  const { searchContent, searchResults } = useGlobalContext()
+  // console.log(searchContent);
+  // console.log(searchResults);
   const results = searchResults.data
-  console.log(results);
+  // console.log(results);
+
+  if (searchResults?.isPending) {
+    return <Loading/>
+  }
 
   if (!results || results.length === 0) {
     return (
@@ -22,8 +28,10 @@ const Search = () => {
       {/* MAIN - PAGE CONTENT */}
       <div className="container">
         <div className="search-results mb-3">
-          <PageHeader text='Search results' />
+          {/* page header */}
+          <PageHeader text={`Search results for: ${searchContent.searchTerm.toUpperCase()}`} />
 
+            {/* page content - search results */}
             <div className="grid">
               {results?.map(cardContent => {
                 // console.log(cardContent);

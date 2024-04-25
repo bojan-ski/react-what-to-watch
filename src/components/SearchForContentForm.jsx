@@ -14,6 +14,7 @@ const SearchForContentForm = () => {
         })       
         
         navigate('/search')
+        e.target.elements[0].value = ''
     }
 
     return (

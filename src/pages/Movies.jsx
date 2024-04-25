@@ -1,32 +1,54 @@
 import { getContentData } from "../utils/getData"
 import { useLoaderData } from "react-router-dom"
+import { useGlobalContext } from "../context"
+import Loading from "../components/Loading"
 import PageHeader from "../components/PageHeader"
 import GridCardContentData from "../components/GridCardContentData"
+import Pagination from "../components/Pagination"
 
-export const loader = async () => {
-    const selectedContent = await getContentData('movie/popular')
+// export const loader = async () => {
+//     const selectedContent = await getContentData('movie/popular')
 
-    return  selectedContent 
-}
+//     return selectedContent
+// }
 
 const Movies = () => {
-    const  selectedContent  = useLoaderData()
+    // const selectedContent = useLoaderData()
+
+    const { setRequiredContentList, getContentList, setPageNumber } = useGlobalContext()
+    setRequiredContentList('movie')
+
+    // console.log(getContentList);
+    const contentList = getContentList.data
+    // console.log(contentList);
+
+    if (getContentList?.isPending) {
+        return <Loading />
+    }
 
     return (
-        <div className="container">         
-            <div className="content-list movies mb-3">
-                <PageHeader text='Current Popular Movies' />
+        <>
+            {/* MAIN - PAGE CONTENT */}
+            <div className="container">
+                <div className="content-list movies mb-3">
+                    {/* page header */}
+                    <PageHeader text='Current Popular Movies' />
 
-                <div className="grid">
-                    {selectedContent?.map(cardContent => {
-                        // console.log(cardContent);
-                        return (
-                            <GridCardContentData key={cardContent.id} cardContent={cardContent} />
-                        )
-                    })}
+                    {/* page content - movie list */}
+                    <div className="grid">
+                        {contentList?.map(cardContent => {
+                            // console.log(cardContent);
+                            return (
+                                <GridCardContentData key={cardContent.id} cardContent={cardContent} />
+                            )
+                        })}
+                    </div>
                 </div>
             </div>
-        </div>
+
+            {/* PAGINATION */}
+            <Pagination />
+        </>
     )
 }
 
