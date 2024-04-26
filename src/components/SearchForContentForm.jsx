@@ -25,10 +25,12 @@ const SearchForContentForm = () => {
                 </h4>
 
                 <form className="w-50 mx-auto" onSubmit={handleSubmit}>
+                    {/* input field */}
                     <div className="mb-3">
                         <input type="text" name="searchTerm" id="searchTerm" className="form-control" placeholder="Enter search term" required />
                     </div>
 
+                    {/* radio btns */}
                     <div className="d-flex flex-column flex-md-row justify-content-between align-items-center">
                         <div className="d-flex">
                             <div className="form-check">
@@ -44,6 +46,8 @@ const SearchForContentForm = () => {
                                 <input type="radio" id="tv-show" name="type" className="form-check-input" />
                             </div>
                         </div>
+
+                        {/* btn - submit */}
                         <button className="btn btn-dark text-white fw-bold border-warning" type="submit">
                             Search
                         </button>

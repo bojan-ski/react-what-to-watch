@@ -16,9 +16,9 @@ const TvShows = () => {
   // const selectedContent = useLoaderData()
 
   const { setRequiredContentList, getContentList } = useGlobalContext()
+  // console.log(getContentList);
   setRequiredContentList('tv')
 
-  // console.log(getContentList);
   const contentList = getContentList.data
   // console.log(contentList);
 

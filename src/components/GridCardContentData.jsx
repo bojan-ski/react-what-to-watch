@@ -2,13 +2,11 @@ import { Link } from "react-router-dom"
 import noImage from '../assets/no-available-img.png'
 
 const GridCardContentData = ({ cardContent }) => {
-    // const { poster_path, title } = cardContent
     // console.log(cardContent);
 
     return (
         <div className="card overflow-hidden">
             <img src={cardContent.poster_path ? `https://image.tmdb.org/t/p/w500${cardContent.poster_path}` : noImage} className="card-img-top" alt={cardContent.title ? cardContent.title : cardContent.name} />
-            {/* <img src={noImage} className="card-img-top" alt={cardContent.title ? cardContent.title : cardContent.name} /> */}
 
             <div className="card-body bg-dark text-white">
                 <h5 className="card-title">

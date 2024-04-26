@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import PageHeader from './PageHeader';
 
 const Slides = ({ text, selectedContent, direction }) => {
-    console.log(selectedContent, direction);
+    // console.log(selectedContent, direction);
 
     return (
         <>

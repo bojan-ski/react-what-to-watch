@@ -32,13 +32,9 @@ h6 {
   font-family: "Limelight", sans-serif;
 }
 
-/* p{
-  font-family: "Poppins", sans-serif;
-} */
-
 .btn:hover{
   background-color: rgb(255, 193, 7);
-  color: #000;
+  color: #000 !important;
 }
 
 .btn:active{

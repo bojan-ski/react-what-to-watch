@@ -18,6 +18,7 @@ export const AppProvider = ({ children }) => {
         queryFn: async () => {
             try {
                 const response = await axios.get(`${import.meta.env.VITE_URL}search/${searchContent.searchType}?query=${searchContent.searchTerm}&page=${pageNumber}&api_key=${import.meta.env.VITE_API_KEY}`)
+                // console.log(response)
                 const results = response.data
                 // console.log(results);
                 setTotalNumberOfPages(results.total_pages)

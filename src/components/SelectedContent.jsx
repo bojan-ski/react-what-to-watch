@@ -6,7 +6,7 @@ const SelectedContent = ({ selectedContent }) => {
 
     return (
         <div className='content-details tv-show text-white'>
-            {/* background-image/poster */}
+            {/* background-image - poster */}
             <div className="background-poster" style={{ backgroundImage: `url(https://image.tmdb.org/t/p/original/${selectedContent.backdrop_path})`}}></div>
 
             {/* page content */}

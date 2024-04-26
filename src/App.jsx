@@ -21,25 +21,24 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <AppLayout />,
-    errorElement: <Error/>,
-    children:[
+    errorElement: <Error />,
+    children: [
       {
         index: true,
-        element: <Dashboard/>,
+        element: <Dashboard />,
         loader: dashboardLoader
       },
       {
         path: 'search',
-        element: <Search/>
+        element: <Search />
       },
       {
         path: 'movies',
-        element: <Movies/>,
+        element: <Movies />,
         // loader: moviesLoader,
-        errorElement: <h1>hello</h1>,
         // children:[
         //   {
-        //     path: '/movies/:id',
+        //     path: '/:id',
         //     element: <SelectedMovie />,
         //     loader: selectedMovieLoader
         //   },
@@ -52,7 +51,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'tv-shows',
-        element: <TvShows/>,
+        element: <TvShows />,
         // loader: tvShowsLoader    
       },
       {
@@ -64,7 +63,7 @@ const router = createBrowserRouter([
   }
 ])
 
-const App = () =>{
+const App = () => {
   return <RouterProvider router={router}></RouterProvider>
 }
 

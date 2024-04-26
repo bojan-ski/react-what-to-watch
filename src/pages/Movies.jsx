@@ -1,5 +1,5 @@
-import { getContentData } from "../utils/getData"
-import { useLoaderData } from "react-router-dom"
+// import { getContentData } from "../utils/getData"
+// import { useLoaderData } from "react-router-dom"
 import { useGlobalContext } from "../context"
 import Loading from "../components/Loading"
 import PageHeader from "../components/PageHeader"
@@ -15,10 +15,10 @@ import Pagination from "../components/Pagination"
 const Movies = () => {
     // const selectedContent = useLoaderData()
 
-    const { setRequiredContentList, getContentList, setPageNumber } = useGlobalContext()
+    const { setRequiredContentList, getContentList } = useGlobalContext()
+    // console.log(getContentList);
     setRequiredContentList('movie')
 
-    // console.log(getContentList);
     const contentList = getContentList.data
     // console.log(contentList);
 
